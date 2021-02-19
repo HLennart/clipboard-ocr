@@ -1,0 +1,14 @@
+R EHL T |
+// env::set_var("TESSDATA PREFIX", "C:\\Users\\roxxe\\rusting\\clipboar
+Let result: vec<us> = match get_clipboard(formats::Bitmap) {
+Ok(v: Vec<us>) => v,
+Err(e: ErrorCode<SystemCategory>) => {
+Ll OH
+panic!("Failed to read clipboard as bitmap");
+}
+1
+Let mut api: TessApi = tesseract::TessApi::new(data_path: Some("tessdata")
+Let pix: pix = leptonica::pix_read_mem(img: &result).unwrap();
+api.set_image(img: &pix);
+println!("{}", &api.get_utf8_text().unwrap());
+
